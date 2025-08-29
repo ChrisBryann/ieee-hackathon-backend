@@ -1,0 +1,186 @@
+{
+  "extraction_metadata": {
+    "processing_confidence": "high",
+    "document_layout": "standard",
+    "total_text_elements": 98,
+    "high_confidence_elements": 90
+  },
+  "vendor_information": {
+    "company_name": {
+      "text": "Haynes, Pratt and Lindsey",
+      "confidence": 0.981381893157959,
+      "coordinates": [136, 499, 510, 543],
+      "region": "body"
+    },
+    "address": {
+      "text": "5257Meadows Port, North Robert, HI72045",
+      "confidence": 0.9775511622428894,
+      "coordinates": [
+        [137, 539, 421, 573],
+        [137, 575, 468, 609]
+      ],
+      "region": "body"
+    },
+    "contact": {
+      "phone": { "text": "", "confidence": 0.0, "coordinates": [] },
+      "email": { "text": "", "confidence": 0.0, "coordinates": [] }
+    }
+  },
+  "invoice_details": {
+    "invoice_number": {
+      "text": "13629172",
+      "confidence": 0.9835661053657532,
+      "coordinates": [131, 68, 539, 108],
+      "context_label": "Invoice #"
+    },
+    "invoice_date": {
+      "text": "2018-11-15",
+      "confidence": 0.9996422529220581,
+      "coordinates": [799, 137, 982, 175],
+      "original_format": "11/15/2018"
+    },
+    "due_date": {
+      "text": "",
+      "confidence": 0.0,
+      "coordinates": [],
+      "context_label": ""
+    }
+  },
+  "financial_data": {
+    "total_amount": {
+      "text": "$ 81 254,75",
+      "numeric_value": 81254.75,
+      "confidence": 0.9731292724609375,
+      "coordinates": [1350, 1879, 1508, 1914],
+      "context_label": "Total"
+    },
+    "subtotal": {
+      "text": "73 867,95",
+      "numeric_value": 73867.95,
+      "coordinates": [936, 1819, 1060, 1854]
+    },
+    "line_items": [
+      {
+        "description": {
+          "text": "12\" White Marble Coffee Table",
+          "coordinates": [235, 928, 583, 958]
+        },
+        "quantity": {
+          "text": "3,00",
+          "numeric_value": 3.0,
+          "coordinates": [665, 925, 732, 963]
+        },
+        "amount": {
+          "text": "1 315,91",
+          "numeric_value": 1315.91,
+          "coordinates": [1394, 926, 1506, 961]
+        }
+      },
+      {
+        "description": {
+          "text": "18\" Black Marble Coffee Table",
+          "coordinates": [236, 1042, 580, 1072]
+        },
+        "quantity": {
+          "text": "3,00",
+          "numeric_value": 3.0,
+          "coordinates": [665, 1038, 734, 1076]
+        },
+        "amount": {
+          "text": "1 246,24",
+          "numeric_value": 1246.24,
+          "coordinates": [1392, 1037, 1506, 1076]
+        }
+      },
+      {
+        "description": {
+          "text": "12\"Marble Coffee Table Top",
+          "coordinates": [234, 1155, 564, 1189]
+        },
+        "quantity": {
+          "text": "1,00",
+          "numeric_value": 1.0,
+          "coordinates": [665, 1153, 732, 1192]
+        },
+        "amount": {
+          "text": "290,70",
+          "numeric_value": 290.7,
+          "coordinates": [1414, 1153, 1507, 1191]
+        }
+      },
+      {
+        "description": {
+          "text": "Yellow Marble Royal Look",
+          "coordinates": [235, 1273, 527, 1304]
+        },
+        "quantity": {
+          "text": "4,00",
+          "numeric_value": 4.0,
+          "coordinates": [666, 1269, 733, 1307]
+        },
+        "amount": {
+          "text": "26 734,40",
+          "numeric_value": 26734.4,
+          "coordinates": [1381, 1272, 1504, 1304]
+        }
+      },
+      {
+        "description": {
+          "text": "18\"x14\" Modern Top Oval",
+          "coordinates": [233, 1413, 533, 1449]
+        },
+        "quantity": {
+          "text": "5,00",
+          "numeric_value": 5.0,
+          "coordinates": [667, 1414, 731, 1449]
+        },
+        "amount": {
+          "text": "6 600,00",
+          "numeric_value": 6600.0,
+          "coordinates": [1392, 1412, 1506, 1450]
+        }
+      },
+      {
+        "description": {
+          "text": "7'x4'Blue Random Marble",
+          "coordinates": [235, 1529, 538, 1561]
+        },
+        "quantity": {
+          "text": "5,00",
+          "numeric_value": 5.0,
+          "coordinates": [666, 1527, 733, 1565]
+        },
+        "amount": {
+          "text": "45 067,50",
+          "numeric_value": 45067.5,
+          "coordinates": [1381, 1529, 1505, 1561]
+        }
+      }
+    ]
+  },
+  "payment_terms": {
+    "terms_text": "",
+    "standardized": null,
+    "confidence": 0.0,
+    "coordinates": [],
+    "early_pay_discount": {
+      "found": false,
+      "text": "",
+      "percentage": null,
+      "days": null
+    }
+  },
+  "extraction_issues": [
+    {
+      "issue_type": "missing_data",
+      "description": "Due date, contact phone/e\u2011mail and payment\u2011terms not found in the OCR data.",
+      "affected_fields": [
+        "due_date",
+        "contact.phone",
+        "contact.email",
+        "payment_terms"
+      ],
+      "suggested_action": "manual_review"
+    }
+  ]
+}
