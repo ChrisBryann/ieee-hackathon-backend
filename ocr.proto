@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package InvoiceOCR;
+
+message UploadInvoiceRequest {
+    int32 user_id = 1;
+    string invoice_file_path = 2;
+}
+
+enum ProcessingConfidence {
+    low = 0;
+    medium = 1;
+    high = 2;
+}
+enum DocumentLayout {
+    standard = 0;
+    complex = 1;
+    damaged = 2;
+}
+
+message VendorInformationData {
+    string text = 1;
+    float confidence = 2;
+}
+
+message FinancialDataLineItemData {
+    message description {
+        string text = 1;
+    }
+    message quantity {
+        string text = 1;
+        int32 numeric_value = 2;
+    }
+    message amount {
+        string text = 1;
+        float numeric_value = 2;
+    }
+}
+message ExtractionIssueData {
+    string issue_type = 1;
+    string description = 2;
+    repeated string affected_fields = 3;
+    string suggested_action = 4;
+} 
+
+message UploadInvoiceResponse {
+    message ExtractionMetadata {
+        ProcessingConfidence processing_confidence = 1;
+        DocumentLayout document_layout = 2;
+        int32 total_text_elements = 3;
+        int32 high_confidence_elements = 4;
+    }
+    ExtractionMetadata extraction_metadata = 1;
+    message VendorInformation {
+        VendorInformationData company_name = 1;
+        VendorInformationData address = 2;
+        message contact {
+            VendorInformationData phone = 1;
+            VendorInformationData email = 2;
+        }
+    }
+    VendorInformation vendor_information = 2;
+    message InvoiceDetails {
+        message InvoiceNumber {
+            string text = 1;
+            float confidence = 2;
+            string context_label = 3;
+        }
+        message InvoiceDate {
+            string text = 1;
+            float confidence = 2;
+            string original_format = 3;
+        }
+        message DueDate {
+            string text = 1;
+            float confidence = 2;
+            string context_label = 3;
+        }
+        message FinancialData {
+            message TotalAmount {
+                string text = 1;
+                float numeric_value = 2;
+                float confidence = 3;
+                string context_label = 4;
+            }
+            repeated FinancialDataLineItemData line_items = 2;
+            message Subtotal {
+                string text = 1;
+                float numeric_value = 2;
+            }
+            message PaymentTerms {
+                string terms_text = 1;
+                string standardized = 2;
+                float confidence = 3;
+                message EarlyPayDiscount {
+                    bool found = 1;
+                    string text = 2;
+                    float percentage = 3;
+                    int32 days = 4;
+                }
+                EarlyPayDiscount early_pay_discount = 4;
+            }
+            TotalAmount total_amount = 1;
+            Subtotal subtotal = 3;
+            PaymentTerms payment_terms = 4;
+        }
+        InvoiceNumber invoice_number = 1;
+        InvoiceDate invoice_date = 2;
+        DueDate due_date = 3;
+        FinancialData financial_data = 4;
+        repeated ExtractionIssueData extraction_issues = 5;
+    }
+    InvoiceDetails invoice_details = 3;
+}
+
+service InvoiceOCR {
+    rpc UploadInvoice (UploadInvoiceRequest) returns (UploadInvoiceResponse) {}
+}
