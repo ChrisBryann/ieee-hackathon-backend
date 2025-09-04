@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ocr-server:
+    build:
+      context: .
+      dockerfile: ./ocr-server/Dockerfile
+      target: development
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    container_name: ocr-server
+    env_file:
+      - ./ocr-server/.env
+    ports:
+      - 50051:50051
+    volumes:
+      - ./ocr-server:/usr/ocr/src
+      - ocr_server_env:/usr/ocr/src/env
+
+volumes:
+  ocr_server_env: 
