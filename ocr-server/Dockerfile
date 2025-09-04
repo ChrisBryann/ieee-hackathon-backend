@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-dev \
-    python3-distutils \
+    # python3-distutils \ 
+    # deprecated in python 3.12+
     python3-venv \
     wget \
     curl \
@@ -23,20 +24,25 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-# Create symbolic link for python
+# Create symbolic link for python and pip
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Upgrade pip
 # RUN python -m pip install --upgrade pip
 
-# Create a virtual environment
-RUN python -m venv env
-ENV PATH="/env/bin:$PATH"
-
 # Copy requirements to install dependencies
 COPY ./ocr-server/requirements.txt .
 
-RUN pip install -r requirements.txt
+# Create a virtual environment and install everything in one RUN to maintain activation
+# make sure to install paddlepaddle-gpu here because it gets installation from an index-url (-i)
+# if we let it install from requirements.txt, it will look for the version in offical site (which does not exist)
+RUN python -m venv env && \
+    . ./env/bin/activate && \
+    pip install --upgrade pip && \
+    pip install paddlepaddle-gpu==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/ && \ 
+    pip install -r requirements.txt
+
+ENV PATH="/env/bin:$PATH"
 
 # Copy code
 COPY . .
