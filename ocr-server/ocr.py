@@ -1,7 +1,7 @@
 from paddleocr import PaddleOCR
 import json
 from typing import List
-import ossd
+import os
   
 
 class BaseOCR():
@@ -11,8 +11,8 @@ class BaseOCR():
                     use_textline_orientation=False, lang='en',
                     text_detection_model_name="PP-OCRv5_mobile_det",
                     text_recognition_model_name="PP-OCRv5_mobile_rec",
-                    text_detection_model_dir=f"{text_detection_model_dir}\\PP-OCRv5_mobile_det",
-                    text_recognition_model_dir=f"{text_recognition_model_dir}\\PP-OCRv5_mobile_rec",
+                    # text_detection_model_dir=f"{text_detection_model_dir}\\PP-OCRv5_mobile_det",
+                    # text_recognition_model_dir=f"{text_recognition_model_dir}\\PP-OCRv5_mobile_rec",
                     )
     
   async def invoke(self, file_path: str) -> List[List[str]]:

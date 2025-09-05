@@ -435,7 +435,6 @@ class ExtractionIssueData(BaseModel):
 # ---------- MAIN RESPONSE ----------
 
 class UploadInvoiceResponseDTO(BaseModel):
-
     class ExtractionMetadata(BaseModel):
         processing_confidence: Optional[ProcessingConfidence] = None
         document_layout: Optional[DocumentLayout] = None
@@ -444,13 +443,13 @@ class UploadInvoiceResponseDTO(BaseModel):
 
     class VendorInformation(BaseModel):
         company_name: Optional[VendorInformationData] = None
-        address: Optional[VendorInformationData] = None
+        address: List[VendorInformationData] = []
 
-        class Contact(BaseModel):
+        class ContactInformation(BaseModel):
             phone: Optional[VendorInformationData] = None
             email: Optional[VendorInformationData] = None
 
-        contact: Optional[Contact] = None
+        contact: Optional[ContactInformation] = None
 
     class InvoiceDetails(BaseModel):
 
@@ -521,7 +520,7 @@ class BaseLLM():
 
         prompt = ChatPromptTemplate(messages=[system_prompt, user_prompt],
                                     partial_variables={
-                                        'json_input_format': parser.format_instructions(),
+                                        'json_input_format': parser.get_format_instructions(),
                                     })
 
         self.__agent = (
@@ -535,5 +534,6 @@ class BaseLLM():
     async def predict_invoice(self, invoice_data: List[List[str]]) -> UploadInvoiceResponseDTO:
       result: str = self.__agent.invoke({"query": invoice_data})
       content = json.loads(re.sub(r"^.*?```json\s*|```$", "", result.content, flags=re.DOTALL).strip())
+      print(content)
       return UploadInvoiceResponseDTO(**content)
       

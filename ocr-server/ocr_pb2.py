@@ -24,17 +24,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tocr.proto\x12\nInvoiceOCR\"B\n\x14UploadInvoiceRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x19\n\x11invoice_file_path\x18\x02 \x01(\t\"9\n\x15VendorInformationData\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"\x98\x01\n\x19\x46inancialDataLineItemData\x1a\x1b\n\x0b\x64\x65scription\x12\x0c\n\x04text\x18\x01 \x01(\t\x1a/\n\x08quantity\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x05\x1a-\n\x06\x61mount\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\"q\n\x13\x45xtractionIssueData\x12\x12\n\nissue_type\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x17\n\x0f\x61\x66\x66\x65\x63ted_fields\x18\x03 \x03(\t\x12\x18\n\x10suggested_action\x18\x04 \x01(\t\"\xd5\x10\n\x15UploadInvoiceResponse\x12Q\n\x13\x65xtraction_metadata\x18\x01 \x01(\x0b\x32\x34.InvoiceOCR.UploadInvoiceResponse.ExtractionMetadata\x12O\n\x12vendor_information\x18\x02 \x01(\x0b\x32\x33.InvoiceOCR.UploadInvoiceResponse.VendorInformation\x12I\n\x0finvoice_details\x18\x03 \x01(\x0b\x32\x30.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails\x1a\xc9\x01\n\x12\x45xtractionMetadata\x12?\n\x15processing_confidence\x18\x01 \x01(\x0e\x32 .InvoiceOCR.ProcessingConfidence\x12\x33\n\x0f\x64ocument_layout\x18\x02 \x01(\x0e\x32\x1a.InvoiceOCR.DocumentLayout\x12\x1b\n\x13total_text_elements\x18\x03 \x01(\x05\x12 \n\x18high_confidence_elements\x18\x04 \x01(\x05\x1a\xef\x01\n\x11VendorInformation\x12\x37\n\x0c\x63ompany_name\x18\x01 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x12\x32\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x1am\n\x07\x63ontact\x12\x30\n\x05phone\x18\x01 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x12\x30\n\x05\x65mail\x18\x02 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x1a\x8e\x0b\n\x0eInvoiceDetails\x12V\n\x0einvoice_number\x18\x01 \x01(\x0b\x32>.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.InvoiceNumber\x12R\n\x0cinvoice_date\x18\x02 \x01(\x0b\x32<.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.InvoiceDate\x12J\n\x08\x64ue_date\x18\x03 \x01(\x0b\x32\x38.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.DueDate\x12V\n\x0e\x66inancial_data\x18\x04 \x01(\x0b\x32>.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData\x12:\n\x11\x65xtraction_issues\x18\x05 \x03(\x0b\x32\x1f.InvoiceOCR.ExtractionIssueData\x1aH\n\rInvoiceNumber\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x15\n\rcontext_label\x18\x03 \x01(\t\x1aH\n\x0bInvoiceDate\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x17\n\x0foriginal_format\x18\x03 \x01(\t\x1a\x42\n\x07\x44ueDate\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x15\n\rcontext_label\x18\x03 \x01(\t\x1a\x97\x06\n\rFinancialData\x12\x39\n\nline_items\x18\x02 \x03(\x0b\x32%.InvoiceOCR.FinancialDataLineItemData\x12`\n\x0ctotal_amount\x18\x01 \x01(\x0b\x32J.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.TotalAmount\x12Y\n\x08subtotal\x18\x03 \x01(\x0b\x32G.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.Subtotal\x12\x62\n\rpayment_terms\x18\x04 \x01(\x0b\x32K.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.PaymentTerms\x1a]\n\x0bTotalAmount\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x12\x15\n\rcontext_label\x18\x04 \x01(\t\x1a/\n\x08Subtotal\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\x1a\x99\x02\n\x0cPaymentTerms\x12\x12\n\nterms_text\x18\x01 \x01(\t\x12\x14\n\x0cstandardized\x18\x02 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x12x\n\x12\x65\x61rly_pay_discount\x18\x04 \x01(\x0b\x32\\.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.PaymentTerms.EarlyPayDiscount\x1aQ\n\x10\x45\x61rlyPayDiscount\x12\r\n\x05\x66ound\x18\x01 \x01(\x08\x12\x0c\n\x04text\x18\x02 \x01(\t\x12\x12\n\npercentage\x18\x03 \x01(\x02\x12\x0c\n\x04\x64\x61ys\x18\x04 \x01(\x05*5\n\x14ProcessingConfidence\x12\x07\n\x03low\x10\x00\x12\n\n\x06medium\x10\x01\x12\x08\n\x04high\x10\x02*8\n\x0e\x44ocumentLayout\x12\x0c\n\x08standard\x10\x00\x12\x0b\n\x07\x63omplex\x10\x01\x12\x0b\n\x07\x64\x61maged\x10\x02\x32\x64\n\nInvoiceOCR\x12V\n\rUploadInvoice\x12 .InvoiceOCR.UploadInvoiceRequest\x1a!.InvoiceOCR.UploadInvoiceResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tocr.proto\x12\nInvoiceOCR\"B\n\x14UploadInvoiceRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x19\n\x11invoice_file_path\x18\x02 \x01(\t\"9\n\x15VendorInformationData\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"\x98\x01\n\x19\x46inancialDataLineItemData\x1a\x1b\n\x0b\x64\x65scription\x12\x0c\n\x04text\x18\x01 \x01(\t\x1a/\n\x08quantity\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x05\x1a-\n\x06\x61mount\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\"q\n\x13\x45xtractionIssueData\x12\x12\n\nissue_type\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x17\n\x0f\x61\x66\x66\x65\x63ted_fields\x18\x03 \x03(\t\x12\x18\n\x10suggested_action\x18\x04 \x01(\t\"\xb9\x11\n\x15UploadInvoiceResponse\x12Q\n\x13\x65xtraction_metadata\x18\x01 \x01(\x0b\x32\x34.InvoiceOCR.UploadInvoiceResponse.ExtractionMetadata\x12O\n\x12vendor_information\x18\x02 \x01(\x0b\x32\x33.InvoiceOCR.UploadInvoiceResponse.VendorInformation\x12I\n\x0finvoice_details\x18\x03 \x01(\x0b\x32\x30.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails\x1a\xc9\x01\n\x12\x45xtractionMetadata\x12?\n\x15processing_confidence\x18\x01 \x01(\x0e\x32 .InvoiceOCR.ProcessingConfidence\x12\x33\n\x0f\x64ocument_layout\x18\x02 \x01(\x0e\x32\x1a.InvoiceOCR.DocumentLayout\x12\x1b\n\x13total_text_elements\x18\x03 \x01(\x05\x12 \n\x18high_confidence_elements\x18\x04 \x01(\x05\x1a\xd3\x02\n\x11VendorInformation\x12\x37\n\x0c\x63ompany_name\x18\x01 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x12\x32\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x12W\n\x07\x63ontact\x18\x03 \x01(\x0b\x32\x46.InvoiceOCR.UploadInvoiceResponse.VendorInformation.ContactInformation\x1ax\n\x12\x43ontactInformation\x12\x30\n\x05phone\x18\x01 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x12\x30\n\x05\x65mail\x18\x02 \x01(\x0b\x32!.InvoiceOCR.VendorInformationData\x1a\x8e\x0b\n\x0eInvoiceDetails\x12V\n\x0einvoice_number\x18\x01 \x01(\x0b\x32>.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.InvoiceNumber\x12R\n\x0cinvoice_date\x18\x02 \x01(\x0b\x32<.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.InvoiceDate\x12J\n\x08\x64ue_date\x18\x03 \x01(\x0b\x32\x38.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.DueDate\x12V\n\x0e\x66inancial_data\x18\x04 \x01(\x0b\x32>.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData\x12:\n\x11\x65xtraction_issues\x18\x05 \x03(\x0b\x32\x1f.InvoiceOCR.ExtractionIssueData\x1aH\n\rInvoiceNumber\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x15\n\rcontext_label\x18\x03 \x01(\t\x1aH\n\x0bInvoiceDate\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x17\n\x0foriginal_format\x18\x03 \x01(\t\x1a\x42\n\x07\x44ueDate\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x15\n\rcontext_label\x18\x03 \x01(\t\x1a\x97\x06\n\rFinancialData\x12\x39\n\nline_items\x18\x02 \x03(\x0b\x32%.InvoiceOCR.FinancialDataLineItemData\x12`\n\x0ctotal_amount\x18\x01 \x01(\x0b\x32J.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.TotalAmount\x12Y\n\x08subtotal\x18\x03 \x01(\x0b\x32G.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.Subtotal\x12\x62\n\rpayment_terms\x18\x04 \x01(\x0b\x32K.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.PaymentTerms\x1a]\n\x0bTotalAmount\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x12\x15\n\rcontext_label\x18\x04 \x01(\t\x1a/\n\x08Subtotal\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x15\n\rnumeric_value\x18\x02 \x01(\x02\x1a\x99\x02\n\x0cPaymentTerms\x12\x12\n\nterms_text\x18\x01 \x01(\t\x12\x14\n\x0cstandardized\x18\x02 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x12x\n\x12\x65\x61rly_pay_discount\x18\x04 \x01(\x0b\x32\\.InvoiceOCR.UploadInvoiceResponse.InvoiceDetails.FinancialData.PaymentTerms.EarlyPayDiscount\x1aQ\n\x10\x45\x61rlyPayDiscount\x12\r\n\x05\x66ound\x18\x01 \x01(\x08\x12\x0c\n\x04text\x18\x02 \x01(\t\x12\x12\n\npercentage\x18\x03 \x01(\x02\x12\x0c\n\x04\x64\x61ys\x18\x04 \x01(\x05*5\n\x14ProcessingConfidence\x12\x07\n\x03low\x10\x00\x12\n\n\x06medium\x10\x01\x12\x08\n\x04high\x10\x02*8\n\x0e\x44ocumentLayout\x12\x0c\n\x08standard\x10\x00\x12\x0b\n\x07\x63omplex\x10\x01\x12\x0b\n\x07\x64\x61maged\x10\x02\x32\x64\n\nInvoiceOCR\x12V\n\rUploadInvoice\x12 .InvoiceOCR.UploadInvoiceRequest\x1a!.InvoiceOCR.UploadInvoiceResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'ocr_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_PROCESSINGCONFIDENCE']._serialized_start=2558
-  _globals['_PROCESSINGCONFIDENCE']._serialized_end=2611
-  _globals['_DOCUMENTLAYOUT']._serialized_start=2613
-  _globals['_DOCUMENTLAYOUT']._serialized_end=2669
+  _globals['_PROCESSINGCONFIDENCE']._serialized_start=2658
+  _globals['_PROCESSINGCONFIDENCE']._serialized_end=2711
+  _globals['_DOCUMENTLAYOUT']._serialized_start=2713
+  _globals['_DOCUMENTLAYOUT']._serialized_end=2769
   _globals['_UPLOADINVOICEREQUEST']._serialized_start=25
   _globals['_UPLOADINVOICEREQUEST']._serialized_end=91
   _globals['_VENDORINFORMATIONDATA']._serialized_start=93
@@ -50,31 +50,31 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EXTRACTIONISSUEDATA']._serialized_start=307
   _globals['_EXTRACTIONISSUEDATA']._serialized_end=420
   _globals['_UPLOADINVOICERESPONSE']._serialized_start=423
-  _globals['_UPLOADINVOICERESPONSE']._serialized_end=2556
+  _globals['_UPLOADINVOICERESPONSE']._serialized_end=2656
   _globals['_UPLOADINVOICERESPONSE_EXTRACTIONMETADATA']._serialized_start=688
   _globals['_UPLOADINVOICERESPONSE_EXTRACTIONMETADATA']._serialized_end=889
   _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION']._serialized_start=892
-  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION']._serialized_end=1131
-  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION_CONTACT']._serialized_start=1022
-  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION_CONTACT']._serialized_end=1131
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS']._serialized_start=1134
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS']._serialized_end=2556
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICENUMBER']._serialized_start=1548
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICENUMBER']._serialized_end=1620
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICEDATE']._serialized_start=1622
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICEDATE']._serialized_end=1694
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_DUEDATE']._serialized_start=1696
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_DUEDATE']._serialized_end=1762
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA']._serialized_start=1765
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA']._serialized_end=2556
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_TOTALAMOUNT']._serialized_start=2130
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_TOTALAMOUNT']._serialized_end=2223
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_SUBTOTAL']._serialized_start=2225
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_SUBTOTAL']._serialized_end=2272
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS']._serialized_start=2275
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS']._serialized_end=2556
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS_EARLYPAYDISCOUNT']._serialized_start=2475
-  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS_EARLYPAYDISCOUNT']._serialized_end=2556
-  _globals['_INVOICEOCR']._serialized_start=2671
-  _globals['_INVOICEOCR']._serialized_end=2771
+  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION']._serialized_end=1231
+  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION_CONTACTINFORMATION']._serialized_start=1111
+  _globals['_UPLOADINVOICERESPONSE_VENDORINFORMATION_CONTACTINFORMATION']._serialized_end=1231
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS']._serialized_start=1234
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS']._serialized_end=2656
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICENUMBER']._serialized_start=1648
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICENUMBER']._serialized_end=1720
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICEDATE']._serialized_start=1722
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_INVOICEDATE']._serialized_end=1794
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_DUEDATE']._serialized_start=1796
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_DUEDATE']._serialized_end=1862
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA']._serialized_start=1865
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA']._serialized_end=2656
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_TOTALAMOUNT']._serialized_start=2230
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_TOTALAMOUNT']._serialized_end=2323
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_SUBTOTAL']._serialized_start=2325
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_SUBTOTAL']._serialized_end=2372
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS']._serialized_start=2375
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS']._serialized_end=2656
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS_EARLYPAYDISCOUNT']._serialized_start=2575
+  _globals['_UPLOADINVOICERESPONSE_INVOICEDETAILS_FINANCIALDATA_PAYMENTTERMS_EARLYPAYDISCOUNT']._serialized_end=2656
+  _globals['_INVOICEOCR']._serialized_start=2771
+  _globals['_INVOICEOCR']._serialized_end=2871
 # @@protoc_insertion_point(module_scope)

@@ -54,10 +54,11 @@ message UploadInvoiceResponse {
     message VendorInformation {
         VendorInformationData company_name = 1;
         VendorInformationData address = 2;
-        message contact {
+        message ContactInformation {
             VendorInformationData phone = 1;
             VendorInformationData email = 2;
         }
+        ContactInformation contact = 3;
     }
     VendorInformation vendor_information = 2;
     message InvoiceDetails {
