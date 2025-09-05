@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: ./ocr-server/Dockerfile
       target: development
+    network_mode: host
     deploy:
       resources:
         reservations:

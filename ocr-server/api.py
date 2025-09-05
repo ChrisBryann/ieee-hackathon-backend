@@ -1,8 +1,6 @@
 import logging
 import asyncio
-import re, json, os
-from typing import List, Optional
-from dotenv import load_dotenv
+from llm import BaseLLM
 
 import grpc
 import ocr_pb2
@@ -13,9 +11,6 @@ from ocr import BaseOCR
 
 # Coroutines to be invoked when the event loop is shutting down.
 _cleanup_coroutines = []
-
-
-load_dotenv()
     
 class InvoiceOCRServicer(ocr_pb2_grpc.InvoiceOCRServicer):
     def __init__(self):

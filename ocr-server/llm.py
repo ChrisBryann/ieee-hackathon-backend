@@ -5,7 +5,7 @@ from typing import List, Optional
 import re, json, os
 from langchain_groq import ChatGroq
 from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, AIMessagePromptTemplate, HumanMessagePromptTemplate
-from langchain.output_parsers import JsonOutputParser
+from langchain_core.output_parsers import JsonOutputParser
 from dotenv import load_dotenv
 
 load_dotenv()

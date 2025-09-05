@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     # python3-distutils \ 
     # deprecated in python 3.12+
     python3-venv \
+    # libgl1 \
     wget \
     curl \
     git \
@@ -36,13 +37,14 @@ COPY ./ocr-server/requirements.txt .
 # Create a virtual environment and install everything in one RUN to maintain activation
 # make sure to install paddlepaddle-gpu here because it gets installation from an index-url (-i)
 # if we let it install from requirements.txt, it will look for the version in offical site (which does not exist)
-RUN python -m venv env && \
-    . ./env/bin/activate && \
-    pip install --upgrade pip && \
+RUN python -m venv /env
+ENV PATH="/env/bin:$PATH"
+
+RUN pip install --upgrade pip && \
     pip install paddlepaddle-gpu==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/ && \ 
     pip install -r requirements.txt
 
-ENV PATH="/env/bin:$PATH"
+
 
 # Copy code
 COPY . .
